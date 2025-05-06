@@ -97,7 +97,7 @@ class VideojuegosChatbot:
             else:
                 return f"No te recomiendo {juego['nombre']} con una puntuacion de {juego['puntuacion']}/5.0"
         if 'saludos' in intenciones:
-            return f"Hola buenas en que puedo ayudarte hoy?"    
+            return "Hola buenas en que puedo ayudarte hoy?"    
         
         # Respuesta por defecto
         return f"Tengo información sobre {juego['nombre']}. ¿Qué te gustaría saber?"
