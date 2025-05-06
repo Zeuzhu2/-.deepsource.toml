@@ -12,20 +12,20 @@ DIRECTORIO_ACTUAL = os.path.dirname(os.path.abspath(__file__))
 # Ruta al archivo JSON
 RUTA_JSON = os.path.join(DIRECTORIO_ACTUAL, 'videojuegos.json')
 
-# Cargar base de datos desde el archivo JSON
-def cargar_base_datos(ruta):
+# Cargar base de datos desde el archivo JSON (ruta interna fija y validada)
+def cargar_base_datos():
     try:
-        with open(ruta, 'r', encoding='utf-8') as archivo:
+        with open(RUTA_JSON, 'r', encoding='utf-8') as archivo:
             return json.load(archivo)
     except FileNotFoundError:
-        print(f"Error: No se encontró el archivo {ruta}")
+        print(f"Error: No se encontró el archivo {RUTA_JSON}")
         return {"productos": []}
     except json.JSONDecodeError:
-        print(f"Error: El archivo {ruta} no tiene un formato JSON válido")
+        print(f"Error: El archivo {RUTA_JSON} no tiene un formato JSON válido")
         return {"productos": []}
 
 # Cargar la base de datos
-JUEGOS_DB = cargar_base_datos(RUTA_JSON)
+JUEGOS_DB = cargar_base_datos()
 
 class VideojuegosChatbot:
     def __init__(self, database):
