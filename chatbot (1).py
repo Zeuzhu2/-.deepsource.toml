@@ -42,7 +42,8 @@ class VideojuegosChatbot:
         # Generar respuesta basada en intenciones y entidades
         return self._generar_respuesta(intenciones, entidades)
 
-    def _extraer_intenciones(self, doc):
+    @staticmethod
+    def _extraer_intenciones(doc):
         intenciones = []
         
         # Palabras clave
@@ -97,7 +98,7 @@ class VideojuegosChatbot:
             else:
                 return f"No te recomiendo {juego['nombre']} con una puntuacion de {juego['puntuacion']}/5.0"
         if 'saludos' in intenciones:
-            return f"Hola buenas en que puedo ayudarte hoy?"    
+            return "Hola buenas en que puedo ayudarte hoy?"    
         
         # Respuesta por defecto
         return f"Tengo información sobre {juego['nombre']}. ¿Qué te gustaría saber?"
