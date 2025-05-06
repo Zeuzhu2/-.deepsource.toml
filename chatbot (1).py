@@ -42,7 +42,8 @@ class VideojuegosChatbot:
         # Generar respuesta basada en intenciones y entidades
         return self._generar_respuesta(intenciones, entidades)
 
-    def _extraer_intenciones(self, doc):
+    @staticmethod
+    def _extraer_intenciones(doc):
         intenciones = []
         
         # Palabras clave
